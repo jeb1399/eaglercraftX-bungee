@@ -136,6 +136,14 @@ cd ..
 cd bungee
 tmux new -d -s server "java -Xmx128M -jar bungee.jar; tmux kill-session -t server"
 cd ..
+
+# Download the server.jar
+cd ../server
+wget -O server.jar "https://your-server-download-link/server.jar"
+
+# run it!!
+tmux new -d -s server "java -Xmx128M -jar server.jar; tmux kill-session -t server"
+
 while tmux has-session -t server
 do
   tmux a -t server
